@@ -34,7 +34,12 @@ python main.py
 
 ## macOS 后台守护部署
 
-如果你打算在一台 Mac （或 Mac 服务器）上全天候运行本服务，项目内置了一键配置开机自启的脚本。它会使用原生 `launchd` 让抓取任务真后台运行：
+项目提供两种 `launchd` 部署方式，请按场景选择：
+
+- `LaunchAgent`：用户登录后自动启动，适合个人 Mac 常驻运行
+- `LaunchDaemon`：系统开机后自动启动，不依赖用户登录，适合 Mac mini / 远程服务器
+
+### 方式一：登录后自启（LaunchAgent）
 
 ```bash
 # 赋予执行权限并部署
@@ -44,6 +49,29 @@ chmod +x start.sh install_mac_service.sh
 # 查看抓取日志
 tail -f data/run.log
 ```
+
+说明：
+
+- plist 安装位置是 `~/Library/LaunchAgents`
+- 只有在对应用户登录后才会启动
+- 当前项目原来的“开机自启”脚本实际属于这种模式
+
+### 方式二：开机即运行（LaunchDaemon）
+
+```bash
+# 赋予执行权限并部署
+chmod +x start.sh install_mac_daemon.sh
+sudo ./install_mac_daemon.sh
+
+# 查看抓取日志
+tail -f data/run.log
+```
+
+说明：
+
+- plist 安装位置是 `/Library/LaunchDaemons`
+- 系统启动后就会拉起，不依赖图形界面登录
+- 脚本会把服务配置为以当前用户身份运行，避免直接以 root 执行业务代码
 
 ## 配置说明（全在 .env 中）
 
