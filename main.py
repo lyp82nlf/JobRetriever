@@ -24,6 +24,7 @@ from notifier import create_active_notifiers
 from processor.data_processor import DataProcessor
 from processor.storage import JobStorage
 from scheduler.job_scheduler import JobScheduler
+from search.dejob_search import DeJobSearchTask
 from search.linkedin_search import LinkedInSearchTask
 
 
@@ -33,6 +34,7 @@ from search.linkedin_search import LinkedInSearchTask
 # value = 搜索任务类
 # ============================================================
 SEARCH_TASK_REGISTRY = {
+    "dejob": DeJobSearchTask,
     "linkedin": LinkedInSearchTask,
 }
 

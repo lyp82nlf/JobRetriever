@@ -90,6 +90,12 @@ class FeishuNotifier(BaseNotifier):
                     "text": {"tag": "lark_md", "content": f"📍 {job.location}"},
                 })
 
+            if job.source:
+                fields.append({
+                    "is_short": True,
+                    "text": {"tag": "lark_md", "content": f"🌐 来源：{job.source}"},
+                })
+
             if job.salary:
                 fields.append({
                     "is_short": True,

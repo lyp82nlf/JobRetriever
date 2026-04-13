@@ -3,7 +3,7 @@
 
 # 启用的搜索任务（对应 search/ 目录下的模块名）
 search_tasks:
-  - linkedin
+  - dejob
 
 # 数据库路径
 database_path: data/jobs.db

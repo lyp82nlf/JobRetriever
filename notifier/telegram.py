@@ -91,6 +91,8 @@ class TelegramNotifier(BaseNotifier):
             lines.append(f"🏢 {self._escape_html(job.company)}")
         if job.location:
             lines.append(f"📍 {self._escape_html(job.location)}")
+        if job.source:
+            lines.append(f"🌐 来源：{self._escape_html(job.source)}")
         if job.salary:
             lines.append(f"💰 {self._escape_html(job.salary)}")
         if job.keywords:

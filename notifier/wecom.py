@@ -83,6 +83,8 @@ class WeComNotifier(BaseNotifier):
             lines.append(f"> 🏢 公司：{job.company}")
         if job.location:
             lines.append(f"> 📍 地点：{job.location}")
+        if job.source:
+            lines.append(f"> 🌐 来源：{job.source}")
         if job.salary:
             lines.append(f"> 💰 薪资：{job.salary}")
         if job.keywords:

@@ -32,6 +32,19 @@ python main.py --once
 python main.py
 ```
 
+## macOS 后台守护部署
+
+如果你打算在一台 Mac （或 Mac 服务器）上全天候运行本服务，项目内置了一键配置开机自启的脚本。它会使用原生 `launchd` 让抓取任务真后台运行：
+
+```bash
+# 赋予执行权限并部署
+chmod +x start.sh install_mac_service.sh
+./install_mac_service.sh
+
+# 查看抓取日志
+tail -f data/run.log
+```
+
 ## 配置说明（全在 .env 中）
 
 ### 搜索配置
