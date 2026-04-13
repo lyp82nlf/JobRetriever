@@ -9,13 +9,14 @@
 import logging
 import os
 from abc import ABC, abstractmethod
+from typing import Optional
 
 from processor.models import JobItem
 
 logger = logging.getLogger(__name__)
 
 
-def get_proxy_config() -> dict | None:
+def get_proxy_config() -> Optional[dict]:
     """
     从环境变量读取代理配置。
 

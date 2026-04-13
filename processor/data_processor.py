@@ -6,6 +6,7 @@
 """
 
 import logging
+from typing import Optional
 
 from processor.filters import JobFilter
 from processor.models import JobItem
@@ -17,7 +18,7 @@ logger = logging.getLogger(__name__)
 class DataProcessor:
     """数据处理层核心类"""
 
-    def __init__(self, storage: JobStorage, job_filter: JobFilter | None = None):
+    def __init__(self, storage: JobStorage, job_filter: Optional[JobFilter] = None):
         self.storage = storage
         self.job_filter = job_filter or JobFilter()
 
