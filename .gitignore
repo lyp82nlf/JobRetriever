@@ -8,3 +8,7 @@ venv/
 dist/
 build/
 .idea/
+
+# Logs and Data
+*.log
+data/
